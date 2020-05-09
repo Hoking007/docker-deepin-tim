@@ -1,28 +1,32 @@
 # docker-deepin-tim
 
-基于Docker封装的Deepin-TIM。
+基于 Docker 封装的 Deepin-TIM，开箱即用。
 
-在ygcaicn以及bestwu封装的基础上，解决高分屏显示问题。
+在 ygcaicn 以及 bestwu 封装的基础上，解决高分屏显示问题。
 
-默认DPI=120，如果有需要可在 “tim.sh” 中修改，例如 “140”：
+默认 DPI=120，如果有需要可在 “tim.sh” 中修改，例如 “140”：
 
 ```sh
 -e DPI=140
 ```
 
-## 1, 构建Docker容器，只需要构建一次
+## 1, 构建 Docker 镜像，只需要构建一次
 
 ```sh
 ./build.sh
 ```
 
-## 2, 自动生成容器，以及.desktop
+## 2, 构建并启动 Docker 容器
 
 ```sh
 ./tim.sh
 ```
 
-快捷方式将自动生成，并放置在 "/home/$(whoami)/.local/share/applications/TIM.desktop"
+## 3, 用户数据
+
+```sh
+/home/$(whoami)/TencentFiles
+```
 
 ## 感谢
 
