@@ -56,13 +56,13 @@ remove(){
 }
 removei(){
   clean
-  imgs=$(docker images | awk '$1 ~ /hoking\/tim/ {print $3}')
+  imgs=$(docker images | awk '$1 ~ /hoking007\/tim/ {print $3}')
   [[ -n $imgs ]] && docker rmi $imgs
   return 0
 }
 
 clean(){
-  container_ids=$(docker ps -a | awk  'NR!=1 && $2 ~ /hoking\/tim/ {print $1}')
+  container_ids=$(docker ps -a | awk  'NR!=1 && $2 ~ /hoking007\/tim/ {print $1}')
   if [[ -n "$container_ids" ]]; then
     docker container rm -f $container_ids
   fi
@@ -95,16 +95,16 @@ startContainer(){
     -e GID=`id -g` \
     -e UID=`id -u` \
 	-e DPI=120 \
-    hoking/tim
+    hoking007/tim
   return 0
 }
 
 start(){
-  container_id=$(docker ps -a | grep script_tim | awk  '$2 ~ /hoking\/tim/ {print $1}')
+  container_id=$(docker ps -a | grep script_tim | awk  '$2 ~ /hoking007\/tim/ {print $1}')
   if [[ -z "$container_id" ]]; then
     startContainer
   else
-    container_stat=$(docker ps | grep script_tim | awk  '$2 ~ /hoking\/tim/ {print $1}')
+    container_stat=$(docker ps | grep script_tim | awk  '$2 ~ /hoking007\/tim/ {print $1}')
     if [ -z "$container_stat" ]; then
       docker container start ${container_id}
     else
